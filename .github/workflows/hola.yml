@@ -14,6 +14,8 @@ jobs:
         run: echo "hola desde github actions"
          
       - name: mostrar perfil
+      
+      
         env:
           USUARIO_ACTUAL: ${{ github.actor }}
         run: |
@@ -22,3 +24,12 @@ jobs:
           echo " 3 repo: ${{ github.repository }}"
           echo " 4 ref  ${{ github.ref_name }}"
           echo " 5 global: $GLOBAL_DATA "
+      
+      
+      - name: condiciones 1
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: echo "evento push activado hacia main"
+      - name: condiciones 2
+        if: github.event_name == 'pull request'
+        run: echo "evento pull request activado"
+      
