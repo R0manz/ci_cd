@@ -32,4 +32,9 @@ jobs:
       - name: condiciones 2
         if: github.event_name == 'pull request'
         run: echo "evento pull request activado"
-      
+      - name: se ejecuta cuando el paso anterior falla
+        if: failure()
+        run: echo "el paso anterior fallo"
+      - name: se ejecuta siempre
+        if: always()
+        run: echo "Se ejecuta siempre"
