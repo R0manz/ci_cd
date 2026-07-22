@@ -13,6 +13,8 @@ jobs:
         run: echo "hola desde github actions"
          
       - name: mostrar perfil
+        env:
+          USUARIO_ACTUAL: ${{ github.actor }}
         run: |
           echo "autor: ${{ github.actor }}"
           echo "evento: ${{ github.event_name }}
